@@ -19,6 +19,27 @@
     },
     "duration": {
       "type": "integer"
+    },
+    "slug": {
+      "type": "string"
+    },
+    "instructor": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "courses"
+    },
+    "lessons": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::lesson.lesson",
+      "mappedBy": "course"
+    },
+    "enrollments": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::enrollment.enrollment",
+      "mappedBy": "course"
     }
   }
 }
